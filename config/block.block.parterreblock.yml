@@ -1,0 +1,24 @@
+uuid: f07998e7-377d-4ae2-b85e-491b2df8d576
+langcode: en
+status: true
+dependencies:
+  module:
+    - huijse_tweaks
+  theme:
+    - huijse_homepage
+id: parterreblock
+theme: huijse_homepage
+region: content
+weight: 0
+provider: null
+plugin: parterre_block
+settings:
+  id: parterre_block
+  label: 'Parterre block'
+  provider: huijse_tweaks
+  label_display: visible
+  text:
+    value: "<p>Dit is een parterre block met een voordeur en een raam op het raam staan all mn social links naar linkedin github en evt facebook. Op de voordeur kan je direct een bericht sturen naar mijn mail. Of het is een contact form.</p>\r\n"
+    format: full_html
+  image: null
+visibility: {  }
