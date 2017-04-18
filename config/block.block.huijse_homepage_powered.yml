@@ -1,0 +1,22 @@
+uuid: 0690131f-439e-4903-b857-0a113c215e50
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - huijse_homepage
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: huijse_homepage_powered
+theme: huijse_homepage
+region: header
+weight: -7
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

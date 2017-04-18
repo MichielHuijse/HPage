@@ -1,0 +1,20 @@
+<?php
+//
+///**
+// * Implements hook_field_widget_form_alter().
+// */
+//function poa_bedrijvengids_tweaks_field_widget_options_shs_form_alter(&$element, \Drupal\Core\Form\FormStateInterface $form_state, $context) {
+//
+//  // Limit taxonomy terms addition of 'diensten' and 'ladingstromen': max 5 allowed.
+//  $field_definition = $context['items']->getFieldDefinition();
+//  if ($field_definition->getName() == 'field_cargo' || $field_definition->getName() == 'field_services') {
+//
+//    // Get the current user
+//    $user = \Drupal::currentUser();
+//
+//    // Limit maximum term references to 5.
+//    if(!$user->hasPermission('administer nodes')) {
+//      $element['#shs']['cardinality'] = 5;
+//    }
+//  }
+//}

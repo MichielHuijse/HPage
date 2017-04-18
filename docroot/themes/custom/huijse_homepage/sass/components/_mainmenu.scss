@@ -1,0 +1,591 @@
+$container-padding: 15px;
+$container-width-desktop-l: 1170px;
+
+// Colors needed for styling mainmenu
+$gray1: #cccccc;
+$gray2: #999999;
+$gray3: #393939;
+$gray4: #222222;
+$gray5: #777777;
+$gray6: #414141;
+$gray7: #555555;
+$gray8: #e6e6e9;
+$gray9: #333333;
+$gray10: #666666;
+$gray11: #f2f2f2;
+$gray12: #a4a4a4;
+$gray13: #c2c9cc;
+$gray14: #5e5e5e;
+$gray15: #b7b7b7;
+$gray16: #d4d4d4;
+$gray17: #ededed;
+$hover: $black;
+
+.block-remotemenublock-wrapper {
+  padding-left: $container-padding;
+  z-index: 1;
+  position: relative;
+}
+
+#block-remotemenublock {
+  line-height: 20px;
+
+  @include breakpoint($tablet) {
+    line-height: 28px;
+  }
+
+  .landing-item {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      min-height: 50px;
+      line-height: 50px;
+      top: 0;
+      right: 0;
+      width: 38px;
+      height: 11px;
+      z-index: 1;
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAALCAYAAAATD/9GAAAA6ElEQVQ4jb3RMUoDYRDF8d8muYaNteXWgkcJSAgBKxU19iohgYAiQe8iNnZ7BM9iLBzJuKxki2xeNfO+Gd6fb4qqqmCMI5xhrZ0KPOITy7IsW6610wATPEVQP/ptcEXsTJK33DXYYQTx83O2wBV4TrNwsEso6OECi+SNsbKBrUOtalALnHcBJuDmyR/hpQZXhDdK3jx2d65eqi8xS/1pgivwGt6vZrHTiQa1/gpfuE5w/aiHae4BN11BNYGJwHUKHtbe7zHtEoq/p8ya4q7B3wsU/4PBLd5T/2FPUDSfMusEbzF33D3ORt/rQybxzphChQAAAABJRU5ErkJggg==) no-repeat center;
+      transition: background-image 0.5s ease;
+    }
+
+    &.active {
+      &:after {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAALCAYAAAATD/9GAAAA40lEQVQ4jbWQPQrCQBBGn5LjWKZTxLuIEkSrhPjTq4gKVhKC4E20scwRxMZ7qIWzOEqSRcg+WDL5djb7MrUsy7BwAjygXdbk+77tO3/hWfbPQEfqC9Cq9PYS6iV7cz5SAE1g4dRGUTSxBTDNyU02c6PzIW9iS76ljrIMU+lxyu/EVkCs3g9AX+oH0JV6wvunxq7E9MTWBVJPWT3JDLGccSq2ASKVp0rK8JQsVVkkZ52IbYBQZQkQ/EhpuUB6DCGwdSF2UxIJMCiQ0nIDYK+ye9VinlzwABrAyCKl5YbyvAK7qsVejfkw5tKDfNYAAAAASUVORK5CYII=) no-repeat center;
+      }
+    }
+  }
+}
+
+#toggle-menu {
+  cursor: pointer;
+  position: static;
+  top: auto;
+  left: auto;
+
+  @include breakpoint($tablet)  {
+    position: static;
+    top: auto;
+    left: auto;
+  }
+
+  &.active {
+    top: 0;
+
+    .img, .caption, &:before {
+      background: $gray4;
+      color: $gray1;
+      padding-top: 2px;
+    }
+
+    &:before {
+      content: '×';
+      padding-left: 26px;
+      width: 68px;
+      float: left;
+      font-size: 26px;
+      line-height: $header-height;
+
+      @include breakpoint($desktop) {
+        padding-left: 7px;
+        width: 21px;
+      }
+    }
+
+    + #block-remotemenublock .content,
+    + .content {
+      visibility: visible;
+      display: block;
+      z-index: 5;
+    }
+  }
+
+  &:hover {
+    .img, .caption {
+      text-decoration: underline;
+      color: $hover;
+    }
+
+    &.active {
+      .img, .caption {
+        text-decoration: underline;
+        color: $white;
+      }
+      &:before {
+        color: $white;
+      }
+    }
+  }
+
+  .img {
+    float: left;
+    padding-top: 20px;
+    height: $header-height;
+    display: block;
+
+    img {
+      margin-top: 7px;
+    }
+  }
+
+  .caption {
+
+    float: left;
+    padding: 0 10px;
+    height: $header-height;
+    line-height: $header-height;
+    padding-top: 2px;
+    color: $medium-gray;
+    display: none;
+
+    @include breakpoint($desktop) {
+      display: block;
+    }
+  }
+
+}
+
+#block-remotemenublock {
+  body > & {
+    visibility: visible;
+  }
+  &::-webkit-scrollbar {
+    width: 0;  /* remove scrollbar space */
+    background: transparent;  /* optional: just makes scrollbar invisible */
+  }
+  position: absolute;
+  top: $header-height;
+  left: 15px;
+  right: 15px;
+  z-index: 5;
+  overflow-y: auto;
+  height: 100vh;
+  visibility: hidden;
+
+  @include breakpoint($tablet)  {
+    left: 0;
+    right: 0;
+  }
+
+  @include breakpoint($desktop)  {
+    position: absolute;
+    height: initial;
+    overflow-y: initial;
+  }
+
+  .content {
+    visibility: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: $gray4;
+    color: $white;
+
+    @include breakpoint($tablet)  {
+      margin: 0 auto;
+      max-width: $container-width-tablet - (2*$container-padding);
+    }
+
+    @include breakpoint($desktop) {
+      max-width: $container-width-desktop - (2*$container-padding);
+    }
+    @include breakpoint($desktop-large) {
+      max-width: $container-width-desktop-l - (2*$container-padding);
+    }
+
+    &.visible {
+      visibility: visible;
+      display: block;
+      z-index: 5;
+    }
+
+    > ul.menu {
+      // Only refers to first level menu-items (the landing items).
+      > li {
+        display: block;
+        @include clearfix();
+
+        > a {
+          display: block;
+          clear: both;
+          font-size: 20px;
+          padding: 22px 0px 12px 35px;
+          @include breakpoint($desktop) {
+            padding: 10px 0px 12px 35px;
+          }
+          min-height: 50px;
+          transition: background-color 0.5s ease;
+
+          // Only refers to immediate child ul from first level menu-items
+          // which contains the so called .head-links.
+          + ul.menu {
+            position: relative;
+            @include clearfix();
+            padding-left: 35px;
+          }
+        }
+
+        &:nth-child(1) {
+          > a {
+            background: #393939;
+
+            + ul.menu {
+              background: #393939;
+
+              ul.menu {
+                background: #393939;
+              }
+            }
+
+            &:hover {
+              background: #161616;
+            }
+          }
+        }
+
+        &:nth-child(2) {
+          > a {
+            background: #404040;
+
+            + ul.menu {
+              background: #404040;
+
+              ul.menu {
+                background: #404040;
+              }
+            }
+
+            &:hover {
+              background: #1E1E1E;
+            }
+          }
+        }
+
+        &:nth-child(3) {
+          > a {
+            background: #474747;
+
+            + ul.menu {
+              background: #474747;
+
+              ul.menu {
+                background: #474747;
+              }
+            }
+
+            &:hover {
+              background: #272727;
+            }
+          }
+        }
+
+        &:nth-child(4) {
+          > a {
+            background: #4E4E4E;
+
+            + ul.menu {
+              background: #4E4E4E;
+
+              ul.menu {
+                background: #4E4E4E;
+              }
+            }
+
+            &:hover {
+              background: #373737;
+            }
+          }
+        }
+
+        // Only referes to second level menu-items.
+        > ul.menu {
+          font-size: 14px;
+          padding-bottom: 36px;
+          @include breakpoint($desktop) {
+            padding: 0;
+          }
+          letter-spacing: 0.17em;
+        }
+      }
+    }
+
+    .popular-links {
+      padding: 12px 35px 25px 35px;
+      background: $gray7;
+      color: $white;
+
+      @include breakpoint($desktop)  {
+        padding: 12px 35px 10px 35px;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      a {
+        color: inherit;
+
+        display: block;
+        line-height: 1rem;
+        @include breakpoint($desktop) {
+          display: inline;
+        }
+        &:first-child {
+          padding-top: 10px;
+          @include breakpoint($desktop) {
+            padding: 0;
+          }
+        }
+        &:last-child {
+          padding-bottom: 10px;
+          @include breakpoint($desktop) {
+            padding: 0;
+          }
+        }
+        &:hover {
+          color: $black;
+        }
+      }
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 0;
+      list-style-image: none;
+      list-style-position: outside;
+      margin: 0;
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* All kind of list item styles. */
+
+      // The head-link.
+      &.head-link {
+        text-transform: uppercase;
+        display: block;
+        padding: 0 0 0 10px;
+        @include breakpoint($desktop) {
+          padding: 0 28.8px 0 25px;
+          float: left;
+          border-right: 1px solid $white;
+          height: 70px;
+          &.first {
+            padding-left: 0;
+          }
+        }
+        &:last-child {
+         padding-bottom: 40px;
+          @include breakpoint($desktop) {
+            padding-bottom: 0px;
+          }
+        }
+        // The submenu-items inside a head-link.
+        > ul.menu {
+          text-transform: none;
+          @include breakpoint($desktop) {
+            position: absolute;
+            top: 70px;
+            padding-top: 20px;
+            left: 0;
+            right: 0;
+          }
+
+          // Default hide all submenu-items, except for the first column.
+          // Only display if head-links are clicked.
+          // A class will be given in jquery to toggle visibility.
+          display: none;
+          @include breakpoint($desktop) {
+            display: block;
+            visibility: element-invisible;
+          }
+        }
+
+        // Extra information in menu-link.
+        .extra-information {
+          display: none;
+          font-size: 16px;
+          @at-root.active & {
+            display: block;
+          }
+          text-transform: none;
+          letter-spacing: 0;
+          @include breakpoint($desktop) {
+            display: block;
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            right: 0;
+            padding: 0 35px;
+          }
+          a {
+            display: block;
+            text-decoration: underline;
+            line-height: 32px;
+            font-size: 16px;
+            &:hover {
+              text-decoration: underline;
+            }
+            @include breakpoint($desktop) {
+              display: inline;
+              padding: 0 20px;
+            }
+            &.icon-alert,
+            &.icon-message {
+              text-decoration: none;
+              padding-bottom: 20px;
+              @include breakpoint($desktop) {
+                display: inline-block;
+                width: 50%;
+              }
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+
+        &.active {
+          > ul.menu,
+          > .extra-information {
+            visibility: visible;
+            display: block;
+          }
+          > ul.menu {
+            padding: 15px 0 40px 0;
+          }
+
+          > a,
+          > a:hover {
+            background: url('../img/bg_menu_basic_link.png') no-repeat center bottom;
+
+            &.green {
+              background: url('../img/bg_menu_basic_link_green.png') no-repeat center bottom;
+            }
+
+            &.orange {
+              background: url('../img/bg_menu_basic_link_orange.png') no-repeat center bottom;
+            }
+          }
+        }
+
+        > a {
+          background: url('../img/bg_menu_basic_link_collapsed.png') no-repeat center bottom;
+          min-height: 35px;
+          display: inline-block;
+          line-height: 48px;
+          @include breakpoint($desktop) {
+            height: 42px;
+            line-height: inherit;
+          }
+
+          &:hover {
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAANCAYAAADsfSGZAAAAL0lEQVRoge3OQREAIAgAMCQLvelmESng3ztvS7BVvU8AV/k6AAAAAAAAAAAA8IEBA5YCqOvo1eYAAAAASUVORK5CYII=) no-repeat center bottom;
+          }
+
+          &.green {
+            &:hover {
+              background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAANCAYAAADsfSGZAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTExIDc5LjE1ODMyNSwgMjAxNS8wOS8xMC0wMToxMDoyMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MTdBRjcxN0QxNDI4MTFFNkFCMzdEN0VBQzA1OThGMzAiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MTdBRjcxN0UxNDI4MTFFNkFCMzdEN0VBQzA1OThGMzAiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxN0FGNzE3QjE0MjgxMUU2QUIzN0Q3RUFDMDU5OEYzMCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxN0FGNzE3QzE0MjgxMUU2QUIzN0Q3RUFDMDU5OEYzMCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Plqz2DUAAABCSURBVHja7NUBDQAgDANBhhQUYRSNnQFIEHAnocmntc7OAK6mCeCtEgcCAgGBgEBAICAQEAgIBAQCAgEEAj9agAEAhM4jDGvh5icAAAAASUVORK5CYII=') no-repeat center bottom;
+            }
+          }
+
+          &.orange {
+            &:hover {
+              background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAANCAYAAADsfSGZAAAAL0lEQVRoge3OMQ0AIAwAsLFnmqcaCcwAPwlpFXTtrhPAVb4OAAAAAAAAAAAAfGAAcKMCcpz56lAAAAAASUVORK5CYII=') no-repeat center bottom;
+            }
+          }
+        }
+
+      }
+
+      // The separator.
+      &.separator {
+        @include breakpoint($desktop) {
+          float: left;
+          width: 33.3%;
+          padding: 0 25px;
+
+          &:first-child {
+            li:not(.caps) {
+              margin-left: 1.5em;
+            }
+          }
+        }
+        list-style: none;
+        font-size: 14px;
+        @include breakpoint($desktop) {
+          font-size: 16px;
+        }
+
+        hr {
+          display: none;
+          border: none;
+        }
+
+        // All list-items in a separator column.
+        > ul.menu {
+          li {
+            list-style-type: none;
+            @include breakpoint($desktop) {
+              list-style-type: disc;
+              line-height: 28px;
+            }
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+
+            a {
+              padding: 7px 10px;
+              margin-left: -10px;
+              text-decoration: none;
+              padding-right: 1.4rem;
+
+              &:hover {
+                text-decoration: underline;
+              }
+
+              span {
+                color: rgba($white, 0.4);
+              }
+            }
+            &.caps a {
+              margin-left: -20px;
+              text-decoration: none;
+
+              @include breakpoint($desktop) {
+                margin-left: 0;
+              }
+            }
+          }
+        }
+      }
+
+      &.caps {
+        text-transform: uppercase;
+        list-style: none !important;
+        height: 32px;
+        padding: 7px 10px;
+
+        &.last {
+          padding: 7px 0 50px 10px;
+        }
+        a {
+          &:hover {
+            text-decoration: none !important;
+            background: $gray5;
+          }
+        }
+      }
+    }
+  }
+}
+
+

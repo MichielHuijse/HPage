@@ -1,0 +1,141 @@
+.view-display-id-page_map,
+.view-display-id-page_1 {
+
+  .view-content {
+    border-top: 4px solid;
+    padding: 2em;
+    margin-bottom: 2em;
+    background-color: $color-background-default;
+
+    .leaflet-container {
+      clear: both;
+    }
+
+    @media (min-width: 660px) {
+      padding-right: 4em;
+      padding-left: 4em;
+    }
+
+  }
+
+  .views-row {
+    border-bottom: 1px solid;
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+  }
+}
+
+.view-display-id-page_1 .views-row:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.search-tab-map-list-view {
+  float: right;
+  clear: left;
+  margin-bottom: 9px;
+  p {
+    display: inline;
+    margin-right: 8px;
+    float:left;
+    margin-bottom: 0;
+  }
+  .btn-green,
+  .btn-grey {
+    margin-top: 16px;
+    float:left;
+  }
+}
+
+.view-header {
+  background: $white;
+  padding: 0 50px 0 50px;
+  margin-bottom: 2em;
+  overflow:auto;
+
+  h3 {
+    float: left;
+    font-family: $font-body;
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+  ul {
+    margin: 0;
+    float: left;
+    line-height: 28px;
+    box-sizing: border-box;
+  }
+  li {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    list-style: none;
+    display:  inline-block;
+    margin-left: 8px;
+    a {
+      font-family: $font-body;
+      font-size: $base-font-size;
+      line-height: $base-line-height;
+    }
+  }
+}
+
+.view-empty {
+  clear: both;
+  background: $white;
+  padding: 0 50px 0 50px;
+  margin-bottom: 2em;
+  overflow: auto;
+}
+
+.view-display-id-page_map {
+  .display_title_map {
+    text-align: center;
+  }
+}
+
+.view-display-id-page_map {
+  .view-content {
+    border-top: none;
+  }
+  .leaflet-container {
+    border-top: 4px solid;
+  }
+  .leaflet-marker-icon {
+    background: green;
+    margin-left: -12px !important;
+    margin-top: -12px !important;
+    width: 24px !important;
+    height: 24px !important;
+    border-radius: 24px;
+    border: 4px solid white;
+    object-position: -99999px 99999px;
+  }
+  .leaflet-shadow-pane {
+    display: none;
+  }
+  .marker-cluster-small,
+  .marker-cluster {
+    >div {
+      background: green;
+      margin-left: -12px !important;
+      margin-top: -12px !important;
+      width: 50px !important;
+      height: 50px !important;
+      border-radius: 50px;
+      border: 4px solid white;
+      object-position: -99999px 99999px;
+      span {
+        color: $white;
+        font-weight: bold;
+        line-height: 40px;
+      }
+    }
+  }
+}
+
+.view-search .wrapper-link {
+	text-decoration: none;
+}

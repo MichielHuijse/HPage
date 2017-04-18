@@ -1,0 +1,25 @@
+uuid: 252df279-9b68-47cb-91a1-1842559fbc07
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - huijse_homepage
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: huijse_homepage_branding
+theme: huijse_homepage
+region: '-1'
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

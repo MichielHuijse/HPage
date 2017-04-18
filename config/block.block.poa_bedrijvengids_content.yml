@@ -1,0 +1,22 @@
+uuid: 687a9dea-8d04-4d25-97b4-3688f7481d08
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - poa_bedrijvengids
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: poa_bedrijvengids_content
+theme: poa_bedrijvengids
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

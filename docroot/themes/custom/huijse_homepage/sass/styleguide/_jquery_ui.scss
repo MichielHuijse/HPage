@@ -1,0 +1,23 @@
+////
+// jQueryUI styling. Default jQueryUI themes try to style way too much, so they
+// have been disabled in the theme's .info.yml file. Use this partial to
+// apply generic styling for jQueryUI elements.
+////
+
+.ui-autocomplete {
+  padding-left: 0;
+  background-color: $color-background-default;
+  border: 1px solid $color-form-border;
+
+  .ui-menu-item {
+    list-style: none;
+
+    &.ui-state-focus {
+      background-color: $color-form-border;
+    }
+
+    > a {
+      display: block; // Allows div's nested inside.
+    }
+  }
+}

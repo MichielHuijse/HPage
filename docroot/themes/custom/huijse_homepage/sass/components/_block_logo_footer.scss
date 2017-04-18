@@ -1,0 +1,21 @@
+#block-logofooter {
+  font-family: $avenir-heavy;
+  color: $red;
+  text-align: center;
+  white-space: nowrap;
+  width: 100%;
+  font-size: 26px;
+  line-height: 28px;
+  float: none;
+  margin-bottom: 10px;
+
+  @include breakpoint($desktop)  {
+    margin-bottom: -28px;
+    font-size: 28px;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

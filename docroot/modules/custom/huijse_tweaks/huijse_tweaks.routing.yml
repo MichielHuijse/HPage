@@ -1,0 +1,7 @@
+
+bedrijvengids_tweaks.empty_page_controller_view:
+  path: '/empty'
+  defaults:
+    _title: ''
+  requirements:
+    _permission: 'access content'

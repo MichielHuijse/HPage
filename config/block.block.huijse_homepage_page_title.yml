@@ -1,0 +1,20 @@
+uuid: ace0416b-e8d8-410e-8f49-197a006c97dd
+langcode: en
+status: true
+dependencies:
+  theme:
+    - huijse_homepage
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: huijse_homepage_page_title
+theme: huijse_homepage
+region: content
+weight: -8
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

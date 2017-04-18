@@ -1,0 +1,31 @@
+// Front page specific styling.
+
+.path-frontpage {
+#main {
+  margin-top: 0;
+}
+  body:before,
+  &:before {
+    display: none;
+  }
+  .backstretch {
+    height: 100%;
+    padding-top: 222px;
+    .backstretch_item {
+      top: 0;
+    }
+  }
+
+  .region-content {
+    background-color: $green;
+  }
+  footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    @include breakpoint($mobile-landscape)  {
+      position: absolute;
+      bottom: 0;
+    }
+  }
+}

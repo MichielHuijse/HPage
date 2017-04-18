@@ -1,0 +1,14 @@
+{
+  "name": "drupal/huijse_tweaks",
+  "type": "drupal-module",
+  "description": "Various simple generic tweaks for the huijse hompage site",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "",
+    "source": ""
+  },
+  "require": { }
+}

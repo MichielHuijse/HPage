@@ -1,0 +1,7 @@
+name: Huijse Homepage Tweaks
+description: Various simple generic tweaks for the Huijse Home site
+core: 8.x
+package: Custom
+dependencies:
+- block
+type: module

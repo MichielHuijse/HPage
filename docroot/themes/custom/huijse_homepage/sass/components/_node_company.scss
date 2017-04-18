@@ -1,0 +1,16 @@
+// CSS for node type company (all view modes).
+article.node--type-company {
+  .last-update {
+    &.shorter {
+      &:before {
+        content: '';
+        float: left;
+        background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAWCAYAAADeiIy1AAAAAXNSR0IArs4c6QAABBBJREFUSA29VctrHVUY/52ZM/eR3PejaZOSpNU+DA0JpqIYUkSQFle1SlV0pehScGPpRkQQydq1gkt3Ckq7UYRSFYNibZsmaCM3bXOTe2+vJrmPufM4x9+Z9h/ILHoOZ+bMmZnv9z1+3/cJzYE9Dj8IYWsLygZsKAhoXrkTmucaoTDngmcaWvGtJSD3iPHwcwVlWRCU6Nu86xBKBZFAEEAoi3vuaIIBl4orDhDFwKdgKSR3AVzVR2unjft2gNHhCqpIw9ISUtMui3bpgKBxXKcVoOmaMMDvrWV8vHYZ69sNGJeWRALvzZ7G6X1zGHbyBgAJK6ZFki4bKA9bXhuf3vqOTvFxYeoMbOngp80VLF6/hH0nS3iuMhMpRLNBT+59aGroCh8/tlaw4XVwceYszo+dwrmReVw88TIGFLvcvkf3aQjGKOSKBWQCHnI23H9RSuUxkdpPgYyJEUfGwSI5OENuBYlgMY6xyGDYlFQSZSeDrvcf1oNNFKwhDITA0tYqsm6IqdwBAjCOktT2aVkcMiiyKCAf7rotXPjtC9QJ9srEAnJ2Gp//9QNmCqP4aPZVlGWFtgg4dHUsII9AFhMlIPv+aP6Nr+/9jEvN62gxXi01wPnqCZw9NI+FwnFkE1kkbBkPyFcKFqncd2yGI8StnRre+vUzOHTdycIhLN2vY1sovD35DN49/DwKdiZejGxPw5MK3f42rm79icWbl3Egux8fPHEGs9lJDFgpvqpdwZe1X/BSeRrFcv4BUJSzhi0MsrmRQlGdivbmmBYEPPFUCDfwcaffwFqniavtVSw1ljE3Mo53jryIY8OjSMoEAlo7manA1QMEjoRHMkrmWiTd1CYjkBgsGyyYRCVuxJw+/b7au4ul1m1ca9ZwY7eGjh/geHEM70+dw0LpWMTA6D+SpBd4uLGzQdpnkGYSOxQkXZsCaWrf66IZdlDvttAZdNHm83q/jX92WrjTa6NHMIfAI7k8Xhs/heniQYwnq6gks5BOihZbYJGGTytudm/j+/oK3pyYR9XORefSZnIF/gBXmstYvPYNNnQXKVvADXvUROBguoLp0mHMlR7DXPlxjMoiUokkEsKCLdgnKDwk+wQXcxO7QRefrHyL8UwZL4w8CTs5RCWM6yjMCSWeKh7Bh0+/DuW7yNPP2XQOVVlG2qLpkVBBzYxfmYCmEXFrWoCxgk6J3KwJttZuIOnbeOPosxgbqsDj96ZfiSBUhGKxD03zMpOVln8/mCa3OY18EzC+M+8DPkiCm/pljk3rjBafNoNd1Le3cJRJm5MZxp3KGHlaMe3YW2DZ/NhksOkhFuuUKe28EoXxJdxDiTzXIRUwPxsNIiSqarZGG6MUxbH3RUoZLR122ViVwWDudRjrH8l4ZED/A4Ko4p5NeCjnAAAAAElFTkSuQmCC');
+        width: 26px;
+        height: 22px;
+        margin-right: 0.3em;
+        margin-top: 0.3em;
+      }
+    }
+  }
+}

@@ -1,0 +1,99 @@
+.node-company-owner-form {
+
+  h3 {
+    margin: 1em 0;
+  }
+
+  .field-group-html-element {
+    padding: 8px 84px 21px 84px;
+    background-color: white;
+    margin-bottom: 60px;
+    @include clearfix();
+
+    > .js-form-wrapper {
+      margin: 3em 0;
+    }
+  }
+
+  .field-group-addresses {
+    padding: 0;
+
+    > .js-form-wrapper {
+      margin: 0;
+    }
+
+    .form-item {
+      label {
+        font-size: 16px;
+      }
+    }
+
+    .form-item-field-address-0-address-postal-code,
+    .form-item-field-address-0-address-locality,
+    .form-item-field-postal-address-0-address-postal-code,
+    .form-item-field-postal-address-0-address-locality{
+      label {
+        display: inline;
+      }
+
+      input {
+        width: auto;
+      }
+    }
+  }
+
+  // Styles the label as an h3.
+  summary,
+  label {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: normal;
+    font-family: $font-heading;
+    margin-bottom: 0.5em;
+    display: block;
+  }
+
+  // Styles inner labels as body text.
+  .details-wrapper {
+    padding: 0;
+
+    label {
+      font-family: $font-body;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+  }
+
+  .filter-wrapper {
+    margin: 1em 0;
+    padding: 0;
+
+    .filter-guidelines-item {
+      margin: 0;
+      background: $lighter-gray;
+      padding: 15px;
+    }
+
+    .tips {
+      list-style: none;
+      font-size: 12px;
+    }
+  }
+
+  .field--name-field-services {
+    float: none;
+  }
+
+  .form-text,
+  .form-email,
+  .field--name-field-video,
+  .field--name-field-image,
+  .field--type-text-with-summary,
+  .field--name-field-services {
+    width: 66.6%;
+  }
+
+  .js-form-wrapper {
+    border-style: none; // Removes unwanted borders.
+  }
+}

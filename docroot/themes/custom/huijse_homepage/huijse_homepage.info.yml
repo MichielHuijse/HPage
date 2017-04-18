@@ -1,0 +1,31 @@
+name: Huijse Homepage
+type: theme
+description: Huijse Homepage
+package: Other
+core: 8.x
+libraries:
+  - huijse_homepage/base
+
+# Using Classy as a base theme https://www.drupal.org/theme-guide/8/classy
+base theme: classy
+
+regions:
+  header: Header
+  main_prefix: Main Prefix
+  content: Content
+  aside_first: Aside First
+  aside_second: Aside Second
+  main_suffix: Main Suffix
+  footer: Footer
+
+# Remove jQuery UI menu styling (sometimes loaded as dependency of jQuery UI
+# autocomplete).
+libraries-override:
+  core/jquery.ui:
+    css:
+      theme:
+        assets/vendor/jquery.ui/themes/base/theme.css: false
+  core/jquery.ui.menu:
+    css:
+      component:
+        assets/vendor/jquery.ui/themes/base/menu.css: false

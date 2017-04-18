@@ -1,0 +1,35 @@
+.node--type-expert {
+  &.node--view-mode-teaser {
+    .field--name-field-expert-photo {
+      float: left;
+      margin-right: 2em;
+    }
+  }
+}
+
+.block-views-blocksearch-block-experts {
+  background: $white;
+  padding: 2em;
+
+  > h2,
+  .view-search {
+    width: auto;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .view-content {
+    border-top: 1px solid;
+    padding-top: 2em;
+  }
+
+  .views-row {
+    margin-bottom: $default-vertical-margin;
+  }
+
+  @media (min-width: 660px) {
+    padding: 3em 4em;
+  }
+
+}

@@ -1,0 +1,82 @@
+////////////////////////
+// Partial for mixins
+////////////////////////
+
+// Clearfix
+@mixin clearfix($extend: true) {
+  @if $extend {
+    @extend %clearfix;
+  } @else {
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+  }
+}
+
+// Shortcut for using the susy-breakpoint mixin with only one variable.
+// The $size variable must match a key that is present in the $susy-media and
+// the $layout-columns maps.
+@mixin grid-breakpoint($size) {
+  @if $size == 'default' {
+    @warn 'It should not be necessary to use the grid-breakpoint mixin for the default breakpoint.';
+    @content;
+  }
+  @else {
+    @include susy-breakpoint($size, map-get($layout-columns, $size)) {
+      @content;
+    }
+  }
+}
+
+// Reset all default styling on a list, to be applied to a ul or ol. Use the
+// $inline argument to align list items left or right.
+@mixin unstyled-list($align: false) {
+  list-style: none;
+  padding-left: 0;
+  @if($align) {
+    text-align: $align;
+  }
+
+  // Unfortunately, the classes are needed because IE8 does weird things with
+  // CSS specificity.
+  li,
+  li.leaf,
+  li.expanded,
+  li.collapsed {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    @if $align {
+      display: inline;
+
+      @if $align == right {
+        margin-left: em(20px);
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+
+      @if $align == left {
+        margin-right: em(20px);
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+//
+// Default container mixin
+
+@mixin default-container {
+    padding: 2em;
+    background-color: #fff;
+
+    @media (min-width: 660px) {
+        padding: 3em 4em;
+    }
+
+}

@@ -1,0 +1,11 @@
+#block-greyblock {
+  background: $medium-gray;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding-left: 50vw;
+  padding-right: 50vw;
+  h3,
+  h2 {
+    color: $white;
+  }
+}

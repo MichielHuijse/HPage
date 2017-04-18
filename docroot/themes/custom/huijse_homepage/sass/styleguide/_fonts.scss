@@ -1,0 +1,56 @@
+// Font faces and stacks.
+
+// Own fonts
+
+// Icon fonts
+
+// Example code.
+//@font-face {
+//  font-family: 'FontAwesome';
+//  src: url('../fonts/font-awesome-4.6.1/fonts/fontawesome-webfont.eot?v=4.6.1');
+//  src: url('../fonts/font-awesome-4.6.1/fonts/fontawesome-webfont.eot?#iefix&v=4.6.1') format('embedded-opentype'),
+//       url('../fonts/font-awesome-4.6.1/fonts/fontawesome-webfont.woff2?v=4.6.1') format('woff2'),
+//       url('../fonts/font-awesome-4.6.1/fonts/fontawesome-webfont.woff?v=4.6.1') format('woff'),
+//       url('../fonts/font-awesome-4.6.1/fonts/fontawesome-webfont.ttf?v=4.6.1') format('truetype'),
+//       url('../fonts/font-awesome-4.6.1/fonts/fontawesome-webfont.svg?v=4.6.1#fontawesomeregular') format('svg');
+//  font-weight: normal;
+//  font-style: normal;
+//}
+
+@font-face {
+  font-family: 'Avenir Book';
+  src: url('../fonts/avenir/avenir_book.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/avenir/avenir_book.woff2') format('woff2'),
+  url('../fonts/avenir/avenir_book.woff') format('woff'),
+  url('../fonts/avenir/avenir_book.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Avenir Medium';
+  src: url('../fonts/avenir/avenir_medium.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/avenir/avenir_medium.woff2') format('woff2'),
+  url('../fonts/avenir/avenir_medium.woff') format('woff'),
+  url('../fonts/avenir/avenir_medium.ttf') format('ttf');
+}
+
+@font-face {
+  font-family: 'Avenir Heavy';
+  src: url('../fonts/avenir/avenir_heavy.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/avenir/avenir_heavy.woff2') format('woff2'),
+  url('../fonts/avenir/avenir_heavy.woff') format('woff'),
+  url('../fonts/avenir/avenir_heavy.ttf') format('ttf');
+}
+
+@import '../fonts/fontello/css/fontello.css';
+
+$avenir-book: 'Avenir Book';
+$avenir-medium: 'Avenir Medium';
+$avenir-heavy: 'Avenir Heavy';
+
+// Create some variables for the font stacks we want to use on this site.
+$base-font-family             : $avenir-book, sans-serif; // The font family set on the html element.
+$monospace-font-family        : "Courier New", Courier, monospace;
+$icon-font-family             : 'FontAwesome';
+$font-body                    : $base-font-family;
+$font-heading                 : $avenir-heavy;
+$font-bold                    : $avenir-heavy;

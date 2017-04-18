@@ -1,0 +1,104 @@
+// Extendables. Please use only placeholder extendables, starting with the
+// % character, instead of valid css selectors.
+
+// Clearfix extendable. See also the clearfix mixin in _mixins.scss.
+%clearfix {
+  @include clearfix($extend: false);
+}
+
+// Put a span before an id to make sure the menu is not before the id element https://pixelflips.com/blog/anchor-links-with-a-fixed-header
+
+.anchor {
+  display: block;
+  height: 70px; /*same height as header*/
+  margin-top: -70px; /*same height as header*/
+  visibility: hidden;
+}
+
+// Buttons
+
+.default-button {
+  color: $white;
+  font-family: $avenir-heavy;
+  font-size: 12px;
+  padding: 3px 10px;
+  letter-spacing: 0.1em;
+  a {
+    text-decoration: none;
+    color: inherit;
+    &:hover {
+      color: $black;
+      text-decoration: underline ;
+    }
+  }
+}
+
+.list-button {
+  display: table;
+  margin: 0 auto;
+  li{
+    display: inline-block;
+    list-style: none;
+    margin-right: 20px;
+  }
+  a, .btn-green, .btn-grey, .btn-darkgrey{
+    &:link, &:visited{
+      min-width: 122px;
+      height: 75px;
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+      font-weight: bold;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+    span {
+      bottom: 1px;
+      border-width: 0 0 2px;
+      border-style: solid;
+      line-height: 14px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+.btn-green {
+  background: $color-btn-base-green;
+  @extend .default-button;
+  &:link, &:visited{
+    color: $white;
+    display: inline-block;
+    text-decoration: none;
+  }
+  &:hover{
+    background: $color-btn-base-green-hover;
+  }
+}
+.btn-grey {
+  background: $color-btn-base-medium-gray;
+  @extend .default-button;
+  &:link, &:visited{
+    color: $white;
+    text-decoration: none;
+    display: inline-block;
+  }
+  &:hover {
+    background: $color-btn-base-darkgray-hover;
+  }
+}
+
+.btn-darkgrey {
+  background: $color-btn-base-darkgray;
+  @extend .default-button;
+
+  &:link, &:visited{
+    color: $white;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  &:hover {
+    background: $color-btn-base-darkgray-hover;
+  }
+}

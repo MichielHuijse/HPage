@@ -1,0 +1,25 @@
+uuid: 8cfbb7e4-2ac0-490c-9f32-a997d130bca7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - poa_bedrijvengids
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: poa_bedrijvengids_branding
+theme: poa_bedrijvengids
+region: '-1'
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

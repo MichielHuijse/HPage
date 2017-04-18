@@ -1,0 +1,102 @@
+////////////////////////
+// Basics of the layout.
+////////////////////////
+
+@include border-box-sizing;
+
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+// Styling for non html5 browsers
+article, aside, details, figcaption, figure, hgroup, menu, nav, section {
+  display: block;
+}
+
+figure {
+  margin: 1em 0;
+}
+
+// Containers.
+#header .layout-row-inner,
+#main,
+#footer .layout-row-inner {
+  margin: 0 auto;
+  max-width: $container-max-width;
+
+  width: 100%;
+
+  @include breakpoint($tablet) {
+    width: $container-width-tablet;
+  }
+
+  @include breakpoint($desktop) {
+    width: $container-width-desktop;
+  }
+
+  @include breakpoint($desktop-large) {
+    width: $container-width-desktop-large;
+  }
+}
+
+.layout-row {
+  .layout-row-inner {
+    position: relative;
+    height: 100%; // Needed for some absolute positioned content which needs to stretch.
+  }
+}
+
+.block {
+
+}
+
+img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+// Additional generic layout fixes.
+.element-invisible {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px,1px,1px,1px);
+  overflow: hidden;
+  height: 1px; width: 1px;
+}
+
+.region-header {
+  position: relative;
+}
+
+#header {
+  height: $header-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+#main {
+  position: relative;
+  padding: 0 20px 2em;
+  margin-top: $header-height;
+
+  @include breakpoint($tablet) {
+    padding: 0;
+  }
+}
+
+#footer {
+  margin-top: 2em;
+
+  padding-top: 20px;
+  padding-bottom: 10px;
+
+  @include breakpoint($tablet) {
+    padding-top: 30px;
+  }
+}

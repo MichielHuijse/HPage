@@ -1,0 +1,18 @@
+.block-site-summary-block {
+  color: $color-green-box;
+
+  h2 {
+    margin: 0;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  @media (min-width: 660px) {
+
+    h2 {
+      padding: 3rem 4rem;
+    }
+
+  }
+
+}

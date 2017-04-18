@@ -1,0 +1,32 @@
+// Pager
+
+.pager__items {
+  margin: 2em;
+  padding: 0;
+  list-style: none;
+
+  li {
+    text-align: center;
+    display: inline-block;
+    @extend .default-button;
+    background: gray;
+
+    &.pager__item.is-active {
+      background: $color-btn-base-lightgray;
+      a {
+        cursor: text;
+      }
+    }
+
+    a {
+      display: block;
+    }
+
+    &.pager__item--first,
+    &.pager__item--previous,
+    &.pager__item--last,
+    &.pager__item--next {
+      @extend .btn-green;
+    }
+  }
+}

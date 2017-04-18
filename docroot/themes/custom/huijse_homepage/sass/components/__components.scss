@@ -1,0 +1,31 @@
+////////////////////////
+// Module Partials
+//
+// Your SMACSS Modules go here
+// Build sub folders and partials in this folder, with everything being imported, in cascading order, into this file.
+////////////////////////
+
+@import 'header';
+@import 'footer';
+@import 'main';
+@import 'block_taalkeuze';
+@import 'logo';
+@import 'node';
+@import 'node_company';
+@import 'node_company_full';
+@import 'node_company_form';
+@import 'node_company_teaser';
+@import 'node_expert';
+@import 'search_results';
+@import 'block_browsethrough';
+@import 'block_popular';
+@import 'block_search';
+@import 'block_facets';
+@import 'block_site_summary';
+@import 'block_social_links';
+@import 'block_logo_footer';
+@import 'mainmenu';
+@import 'pager';
+@import 'backlink';
+@import 'browse';
+@import 'block_grey';

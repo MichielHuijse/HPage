@@ -1,0 +1,20 @@
+uuid: dd50e0a6-48ec-46b7-9628-ded2f11a65ff
+langcode: en
+status: true
+dependencies:
+  theme:
+    - poa_bedrijvengids
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: poa_bedrijvengids_page_title
+theme: poa_bedrijvengids
+region: content
+weight: -8
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

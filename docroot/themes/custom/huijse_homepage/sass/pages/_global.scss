@@ -1,0 +1,12 @@
+body {
+  background: $light-between-gray;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 70px;
+    height: 630px;
+    width: 100%;
+    background: $color-base-green;
+  }
+}

@@ -1,0 +1,347 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the huijse_homepage theme.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function huijse_homepage_preprocess_html(array &$variables) {
+  /* Add class to html tag */
+  //$variables['html_attributes']->addClass('no-js');
+
+  // Don't display the site name twice on the front page (and potentially others)
+  /*if (isset($variables['head_title_array']['title']) && isset($variables['head_title_array']['name']) && ($variables['head_title_array']['title'] == $variables['head_title_array']['name'])) {
+    $variables['head_title'] = $variables['head_title_array']['name'];
+  }*/
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function huijse_homepage_page_attachments_alter(array &$page) {
+  // Tell IE to use latest rendering engine (not to use compatibility mode).
+  /*$ie_edge = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+    'http-equiv' => 'X-UA-Compatible',
+    'content' => 'IE=edge',
+    ],
+  ];
+  $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];*/
+}
+
+/**
+ * Implements hook_preprocess_page() for page.html.twig.
+ */
+function huijse_homepage_preprocess_page(array &$variables) {
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function huijse_homepage_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_theme_suggestions_node_alter().
+ */
+function huijse_homepage_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+  /*$node = $variables['elements']['#node'];
+
+  if ($variables['elements']['#view_mode'] == "full") {
+
+  }*/
+
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $content_type = $node->bundle();
+//    $suggestions[] = 'page__'.$content_type;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for Block document templates.
+ */
+function huijse_homepage_preprocess_block(array &$variables) {
+
+  // Make this "global" available to all block twigs. @see http://drupal.stackexchange.com/a/206566
+  $variables['base_path'] = base_path();
+
+}
+
+function huijse_homepage_preprocess_block__system_branding_block(array &$variables) {
+  $current_language = \Drupal::languageManager()
+    ->getCurrentLanguage()
+    ->getId();
+  $variables['currentlanguage'] = $current_language;
+}
+
+
+function huijse_homepage_preprocess_block__zichtbaarformuliersearchpage_1(array &$variables) {
+  $variables['content']['actions']['submit']['#attributes']['class'][] = 'icon-in-value';
+  $variables['content']['actions']['submit']['#value'] = '';
+}
+
+
+function huijse_homepage_preprocess_links__language_block(array &$variables) {
+  $current_language = \Drupal::languageManager()
+    ->getCurrentLanguage()
+    ->getId();
+  $variables['toggle'] = array(
+    '#markup' => '<span class="toggle-language"><span class="caption">' . $current_language . '</span><span class="caption close">' . t('×') . '</span></span>',
+  );
+
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function huijse_homepage_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  /*$element = $variables['element'];
+  $suggestions[] = 'field__' . $element['#view_mode'];
+  $suggestions[] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'];*/
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function huijse_homepage_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
+  /*$element = $variables['element'];
+  if (isset($element['#attributes']['class']) && in_array('form-composite', $element['#attributes']['class'])) {
+    $suggestions[] = 'fieldset__form_composite';
+  }*/
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function huijse_homepage_preprocess_node(array &$variables) {
+  // Default to turning off byline/submitted.
+  //$variables['display_submitted'] = FALSE;
+  $node = $variables['node'];
+
+  // Switch node type.
+  switch($node->bundle()) {
+    case 'company':
+
+      // View mode independent variables.
+
+      // Define the last update status.
+      $changed = new DateTime();
+      $changed->setTimestamp($node->getChangedTime());
+      $interval = $changed->diff(new DateTime('now'));
+      $months = $interval->m;
+      $variables['last_update'] = $months > 3 ? 'longer' : 'shorter';
+
+
+      // View mode full.
+      if($variables['view_mode'] == 'full') {
+
+        // Attach js setting to activate back link implementation.
+
+        $variables['#attached']['drupalSettings'] = array('poa_create_back_link' => array('enabled' => true));
+
+        // Define wrapper for fields.
+        $variables['content']['field_phone']['#prefix'] = '<div class="company-contact-info"><span class="company-contact-info__span collapse collapsed" data-target=".company-contact-info__content">' . t('View contact info') . '</span><div class="company-contact-info__content"';
+
+        // Adds the end div after the postal address.
+        if(!empty($node->get('field_postal_address')->getValue())) {
+          $variables['content']['field_postal_address']['#suffix'] = '</div></div>';
+        } else {
+          $variables['content']['field_address']['#suffix'] = '</div></div>';
+        }
+
+        // Add a custom label for the mail field(s).
+        $variables['content']['field_mail_general']['#prefix'] = '<div class="company-contact-mail-addresses field__label">' . t('E-mail') . '</div>';
+
+        // Define company logo field.
+        if(empty($variables['content']['field_logo']['#items'])) {
+          $variables['content']['field_logo']['#markup'] = '<span class="logo-placeholder">' . t('Your logo here') . '</span>';
+        }
+
+        // Define google maps static map.
+        if(!empty($node->get('field_address')->getValue())) {
+          $address = $node->get('field_address')->getString();
+          $urlencoded_address = urlencode($address);
+          $variables['content']['body']['#suffix'] = '<img class="company-map" src="https://maps.googleapis.com/maps/api/staticmap?center=' . $urlencoded_address . '&zoom=14&size=520x286&markers=color:red|' . $urlencoded_address . '&key=AIzaSyD5kaw2fWcj-ldhhd6Il2rC9biKarxiPzg" />';
+        }
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_views_view_alter().
+ */
+function huijse_homepage_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'views_view__' . $variables['view']->storage->id();
+  $suggestions[] = 'views_view__' . $variables['view']->storage->id() . '__' . $variables['view']->current_display;
+}
+
+/**
+ * Implements hook_theme_suggestions_views_view_field_alter().
+ */
+function huijse_homepage_theme_suggestions_views_view_field_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'views_view_field__' . $variables['view']->storage->id();
+  $suggestions[] = 'views_view_field__' . $variables['view']->storage->id() . '__' . $variables['view']->current_display;
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+use Symfony\Component\HttpFoundation\RequestStack;
+
+function huijse_homepage_preprocess_views_view(&$variables) {
+
+  // Get title of the view
+  $view = $variables['view'];
+
+  if ($view->storage->id() == 'search' && ($variables['display_id'] == 'page_1' || $variables['display_id'] == 'page_map')) {
+
+    $variables['display_title_map'] = $view->getDisplay()->getOption('title');
+
+    // Makes the tab
+    // Gets the current request
+    $current_request = Drupal::request()->getRequestUri();
+
+    // Retrieve an array which contains the path pieces.
+    $current_path = \Drupal::service('path.current')->getPath();
+    $removedPath = str_replace($current_path, '', $current_request);
+    $cleanQuery = substr($removedPath, 3);
+    $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    if ($language == 'nl') {
+      $searchList = 'nl/zoeken';
+      $searchMap = 'nl/zoeken/kaart';
+    }
+    else {
+      $searchList = 'en/search';
+      $searchMap = 'en/search/map';
+    }
+
+    if ($variables['display_id'] == 'page_1'){
+      $listClass = 'btn-green';
+      $mapClass = 'btn-grey';
+    }
+    else {
+      $listClass = 'btn-grey';
+      $mapClass = 'btn-green';
+    }
+
+    $variables['showAs'] = '<div class="search-tab-map-list-view"><p>' . t('Show as') . '</p>';
+    $variables['tabList'] = '<a class="' . $listClass . '" href="/' . $searchList . $cleanQuery . '">' . t('LIST') . '</a>';
+    $variables['tabMap'] = '<a class="' . $mapClass . '" href="/' . $searchMap . $cleanQuery . '">' . t('MAP') . '</a>';
+  }
+}
+
+  /**
+   * Implements hook_preprocess_form().
+   */
+  function huijse_homepage_preprocess_form(array &$variables) {
+    //$variables['attributes']['novalidate'] = 'novalidate';
+  }
+
+  /**
+   * Implements hook_preprocess_select().
+   */
+  function huijse_homepage_preprocess_select(array &$variables) {
+    //$variables['attributes']['class'][] = 'select-chosen';
+  }
+
+  /**
+   * Implements hook_preprocess_field().
+   */
+  function huijse_homepage_preprocess_field(array &$variables, $hook) {
+    /*switch ($variables['element']['#field_name']) {
+    }*/
+
+//
+//  if ($variables['element']['#field_name'] == 'field_address') {
+//    $variables['node_title'] = $variables['element']['#object']->getTitle();
+//  }
+  }
+
+
+function huijse_homepage_preprocess_views_view_field(array &$variables, $hook) {
+//  node_load($nid = NULL, $reset = FALSE);
+
+//  \Drupal::entityTypeManager()->getStorage($element)->load($nid);
+//$fo = 'bar';
+}
+
+/**
+ * Implements hook_preprocess_details().
+ */
+function huijse_homepage_preprocess_details(array &$variables) {
+  /*$variables['attributes']['class'][] = 'details';
+  $variables['summary_attributes']['class'] = 'summary';*/
+}
+
+/**
+ * Implements hook_theme_suggestions_details_alter().
+ */
+function huijse_homepage_theme_suggestions_details_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_menu_local_task().
+ */
+function huijse_homepage_preprocess_menu_local_task(array &$variables) {
+  //$variables['element']['#link']['url']->setOption('attributes', ['class'=>'rounded']);
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function huijse_homepage_form_node_company_owner_form_alter(&$form, &$form_state, $form_id) {
+
+  // Disable 'details' html element.
+  $form['field_address']['widget'][0]['#type'] = 'container';
+  $form['field_postal_address']['widget'][0]['#type'] = 'container';
+
+  // Change the address labels afterwards.
+  $form['#after_build'][] = 'huijse_homepage_change_address_labels';
+  $form['#after_build'][] = 'huijse_homepage_remove_tips';
+}
+
+/**
+ * Change address labels, for better explanation to companies.
+ * @param $element
+ * @param $form_state
+ *
+ * @return mixed
+ */
+function huijse_homepage_change_address_labels($element, &$form_state) {
+
+  // Change the street address label.
+  $element['field_address']['widget'][0]['address']['address_line1']['#title'] = t('Street');
+  $element['field_postal_address']['widget'][0]['address']['address_line1']['#title'] = t('Postal address');
+
+
+  // Change the country code label.
+  $element['field_postal_address']['widget'][0]['address']['country_code']['#title'] = t('Separate postal address');
+  $element['field_postal_address']['widget'][0]['address']['country_code']['#options']['NL'] = t('Yes');
+
+  return $element;
+}
+
+/**
+ * Remove body tips for a cleaner body markup.
+ *
+ * @param $element
+ * @param $form_state
+ *
+ * @return mixed
+ */
+function huijse_homepage_remove_tips($form, &$form_state) {
+
+  if(isset($form['body']['widget'][0]['format']['help'])) {
+    unset($form['body']['widget'][0]['format']['help']);
+  }
+
+  return $form;
+}

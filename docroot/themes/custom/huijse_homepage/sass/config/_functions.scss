@@ -1,0 +1,12 @@
+////////////////////////
+// Functions Partial
+//
+// All of your functions should go in this file.
+////////////////////////
+
+// Do px-to-em conversion, thanks to https://gist.github.com/ijy/1441967.
+// Do consider to use rem's instead of em's, see the rem() mixin.
+@function em($target, $context: $base-font-size) {
+  @if $target == 0 { @return 0 }
+  @return $target / $context + 0em;
+}

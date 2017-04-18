@@ -1,0 +1,22 @@
+#block-sitebranding {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  .site-logo {
+    width: 50%;
+    float: left;
+    margin-right: -100%;
+    margin-left: 25%;
+    clear: none;
+    padding: 25px 15px 15px;
+
+    img {
+      width: 262px;
+      height: 30px;
+      vertical-align: middle;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,64 @@
+article.node--type-company.node--view-mode-teaser {
+  clear: both;
+
+  h2 {
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+  }
+
+  .node__content {
+    @include clearfix();
+  }
+  .field--type-entity-reference {
+    .field__label {
+      clear: both;
+    }
+    .field__item {
+      display: inline-block;
+      margin-right: 0.5em;
+      &:after {
+        content: ", ";
+      }
+      &:last-child:after {
+        content: ".";
+      }
+    }
+  }
+
+  .company_logo {
+    float: left;
+    width: calc(34% - 24px);
+  }
+
+  .field--name-field-logo {
+    margin: 0;
+  }
+  .content-without-logo {
+    float:right;
+    width:66%;
+  }
+  .company-info {
+    clear: both;
+  }
+
+  .field--name-body {
+    clear: both;
+    width: 100%;
+  }
+
+  @media (max-width: 659px) {
+
+    .company_logo {
+        margin-bottom: 24px;
+    }
+
+    .company_logo,
+    .content-without-logo {
+      float: none;
+      width: auto;
+    }
+
+  }
+
+}

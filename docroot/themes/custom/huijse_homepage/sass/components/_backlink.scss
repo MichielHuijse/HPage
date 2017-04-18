@@ -1,0 +1,35 @@
+//
+// Component: Backlink
+//
+
+.back-link,
+.back-link:link,
+.back-link:visited {
+    display: inline-block;
+    padding: .25em 0;
+    border-bottom: 2px solid currentColor;
+    color: #fff;
+    font-family: 'Avenir Heavy', sans-serif;
+    font-size: 0.875em; // 14px
+    line-height: 1;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @media (min-width: $tablet) {
+        font-size: 1rem; // 16px
+    }
+
+}
+
+.back-link:hover {
+    border-color: currentColor;
+    color: #d4d4d4;
+}
+
+.back-link::before {
+    display: inline-block;
+    margin-right: .25em;
+    content: '\00AB';
+    font-size: 1.5em;
+    vertical-align: baseline;
+}

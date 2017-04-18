@@ -1,0 +1,22 @@
+uuid: 5a6ff835-8028-41f9-9fd8-925b1933281a
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - huijse_homepage
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: huijse_homepage_content
+theme: huijse_homepage
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

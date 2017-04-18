@@ -1,0 +1,83 @@
+//
+// Colors, etc.er
+//
+
+// Color name variables. These are used to map a hexadecimal color code to a
+// descriptive color name, for example: $light-gray: #CCCCCC;
+// Color name variables should never be used directly in Sass partials, but
+// always mapped to a color usage variable below.
+
+$white                              : #FFFFFF;
+$black                              : #000000;
+$gray                               : #333333;
+$gray-lighter                       : lighten($gray, 15%);
+$medium-gray                        : #8a8a8a;
+$light-gray                         : #c1c1c1;
+$light-between-gray                 : lighten($light-gray, 15%);
+$lighter-gray                       : lighten($light-gray, 20%);
+$green                              : #00a24c;
+$dark-green                         : #0f652e;
+$blue                               : #00a0df;
+$dark-blue                          : #1772a0;
+$orange                             : #e06505;
+$dark-orange                        : #954300;
+$red                                : #d61600;
+
+// Color usage variables. These are used to map a color name to a variable
+// describing the usage of that color, for example: $color-border: $light-gray.
+// Naming convention:
+// - $color-[element] for site-wide colors, eg. $color-link;
+// - $color-[context]-[element] for colors within a certain context, eg.
+//     $color-menu-link.
+
+// Various re-usable elements.
+$color-base-blue                    : $blue;
+$color-base-blue-hover              : $dark-blue;
+$color-base-green                   : $green;
+$color-base-green-hover             : $dark-green;
+$color-base-orange                  : $orange;
+$color-base-orange-hover            : $dark-orange;
+$color-base-red                     : $red;
+
+// button colors
+$color-btn-base-green                : $green;
+$color-btn-base-green-hover          : $dark-green;
+
+$color-btn-base-red                  : $red;
+
+$color-btn-base-medium-gray          : $medium-gray;
+
+$color-btn-base-darkgray             : $gray;
+$color-btn-base-darkgray-hover       : $gray-lighter;
+
+$color-btn-base-lightgray            : $light-gray;
+
+$color-background-default           : $white;
+$color-body                         : $gray;
+$color-link                         : $gray;
+$color-link-visited                 : $medium-gray;
+$color-border                       : $color-body;
+
+$color-button-text                  : $white;
+
+$color-lang-menu-background         : $gray;
+$color-lang-menu-hover              : $medium-gray ;
+$color-lang-menu-hovercross         : $light-gray;
+
+$color-form-border                  : $light-gray;
+$color-form-placeholder             : $light-gray;
+
+$color-button-search                : $light-gray;
+$color-icon-search                  : $medium-gray;
+$color-hover-search                 : $light-between-gray;
+
+$color-green-box                    : $white;
+$color-green-box-background         : $green;
+
+$color-facets-item-background             : $white;
+$color-facets-item-selected-background    : $light-gray;
+
+$color-passive                       : $light-gray;
+$color-active                        : $black;
+
+

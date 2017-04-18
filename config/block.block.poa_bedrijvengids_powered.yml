@@ -1,0 +1,22 @@
+uuid: 96c554c7-12a8-41ed-bc7b-38a7a90209b7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - poa_bedrijvengids
+_core:
+  default_config_hash: jQQUUWN2Uxr5qZtc9zcJKBCxpKY8orN1u2HPqYYRQDI
+id: poa_bedrijvengids_powered
+theme: poa_bedrijvengids
+region: header
+weight: -7
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: 51180e40-6ae1-456d-aaf3-bdf32758414a
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - huijse_homepage
+_core:
+  default_config_hash: za-39d5WDUg6XvbyqSnuVYEeq6QM4qKJxW8MnoAha5A
+id: huijse_homepage_search
+theme: huijse_homepage
+region: '-1'
+weight: -6
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: visible
+visibility: {  }

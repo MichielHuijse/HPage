@@ -1,0 +1,20 @@
+uuid: af88da00-2095-4504-a99b-2eba526d2242
+langcode: en
+status: true
+dependencies:
+  theme:
+    - poa_bedrijvengids
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: poa_bedrijvengids_local_actions
+theme: poa_bedrijvengids
+region: content
+weight: -8
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

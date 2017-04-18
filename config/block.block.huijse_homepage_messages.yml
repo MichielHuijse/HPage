@@ -1,0 +1,22 @@
+uuid: 0f1ad275-5485-4600-8a7d-b9d282b7f48c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - huijse_homepage
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: huijse_homepage_messages
+theme: huijse_homepage
+region: header
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

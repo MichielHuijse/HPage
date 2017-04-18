@@ -1,0 +1,84 @@
+#block-taalkeuze {
+
+  clear: both;
+  .toggle-language {
+    .caption {
+      cursor: pointer;
+      width: 30px;
+      height: 70px; //header height
+      padding-top: 26px;
+      text-align: center;
+      text-decoration: underline;
+      position: absolute;
+      top: 0;
+      right: 15px;
+      text-transform: uppercase;
+
+      &:hover {
+        color: $color-lang-menu-background;
+      }
+
+      &.close {
+        text-transform: none;
+        text-decoration: none;
+        width: $header-height;
+        height: $header-height;
+        padding: 0;
+        line-height: $header-height;
+        background-color: $black;
+        color: $color-lang-menu-hovercross;
+        font-size: 26px;
+        text-align: center;
+        cursor: pointer;
+
+        &:hover {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .content {
+    background-color: $color-lang-menu-background;
+    position: absolute;
+    top: $header-height;
+    right: 15px; //$container-padding;
+    width: 180px;
+    float: right;
+    margin-left: 0;
+    margin-right: 0;
+    clear: none;
+    padding-right: 0;
+    left: auto;
+    z-index: 10;
+
+    ul {
+      margin: 0;
+      padding: 15px 0;
+
+      li {
+        list-style: none;
+        margin: 0;
+        padding: 0 20px;
+
+
+        span {
+          padding: 5px 20px 5px 20px;
+          display: block;
+        }
+
+        a {
+          color: $white;
+          padding: 5px 20px 5px 20px;
+          display: block;
+          text-decoration: none;
+
+          &:hover,
+          &.active {
+            background-color: $color-lang-menu-hover;
+          }
+        }
+      }
+    }
+  }
+}

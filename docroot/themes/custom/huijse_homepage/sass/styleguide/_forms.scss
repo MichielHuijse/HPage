@@ -1,0 +1,99 @@
+/**
+ * Form elements: Inputs, buttons, etc.
+ */
+
+form {
+}
+
+fieldset {
+}
+
+legend {
+}
+
+
+label,
+input,
+button,
+select,
+textarea {
+  transition: background-color 0.5s ease;
+}
+
+input,
+button,
+select,
+textarea {
+  //font-family: $form-font-family; // And only set font-family here for those that need it (note the missing label element)
+}
+
+label {
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+
+  border: none;
+  color: $color-button-text;
+  font-family: $avenir_heavy;
+  text-transform: uppercase;
+  padding: 10px 1em 7px;
+  letter-spacing: 0.15em;
+  font-size: 0.74em;
+  -webkit-font-smoothing: antialiased;
+  background: $color-base-green;
+
+  &:hover {
+    background: $color-base-green-hover;
+  }
+
+  &:active {
+
+  }
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea,
+select {
+  border: 1px solid $color-form-border;
+
+  &:focus {
+    border: 3px solid $lighter-gray;
+    margin-left: -1.5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    outline: none;
+  }
+}
+
+input[type="checkbox"] {
+
+}
+
+input.form-text,
+input.form-email {
+  line-height: 38px;
+  padding: 0 10px;
+  height: 38px;
+}
+
+textarea {
+  padding: 10px;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: $color-form-placeholder;
+}
+
+select {
+  line-height: 38px;
+  height: 38px;
+  padding: 0 10px;
+  background-color: white;
+}

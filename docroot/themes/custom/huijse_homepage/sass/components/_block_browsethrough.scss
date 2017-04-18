@@ -1,0 +1,24 @@
+#block-browsethrough {
+
+  background-color: $white;
+  min-height: 55px;
+  line-height:55px;
+  padding-left:40px;
+
+  #block-browsethrough-menu {
+
+    display: inline;
+    font-family: $font-bold;
+  }
+
+  ul.menu {
+
+    display: inline;
+
+    li {
+      margin-right: 18px;
+      display: inline-block;
+      text-decoration: underline;
+    }
+  }
+}

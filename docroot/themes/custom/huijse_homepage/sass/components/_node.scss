@@ -1,0 +1,29 @@
+.path-node {
+  .page-title {
+    background: $color-background-default;
+
+    @include breakpoint($tablet) {
+      margin: 0;
+      padding: 25px 25px 0 25px;
+    }
+
+    @include breakpoint($desktop) {
+      padding: 50px 50px 0 50px;
+    }
+  }
+}
+
+.node--view-mode-full {
+  padding: 2em;
+  margin-top: 1.5em;
+  background: $color-background-default;
+  @include clearfix();
+
+  @include breakpoint($tablet) {
+    padding: 3em 4em;
+  }
+
+  @include breakpoint($desktop) {
+    padding: 50px;
+  }
+}

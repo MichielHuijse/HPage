@@ -1,0 +1,22 @@
+uuid: 1cbfb215-ad90-4573-af1d-964b627a5624
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - poa_bedrijvengids
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: poa_bedrijvengids_help
+theme: poa_bedrijvengids
+region: content
+weight: -8
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

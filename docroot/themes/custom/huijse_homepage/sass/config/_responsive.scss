@@ -1,0 +1,25 @@
+////////////////////////
+// Base settings
+////////////////////////
+$base-font-size: 16px;
+$base-line-height-fixed: 28px;
+$base-line-height: $base-line-height-fixed / $base-font-size; // Unitless line-height.
+$base-vertical-spacing: em(20px, $base-font-size);
+
+////////////////////////
+// Metrics///////
+$container-width-tablet: 750px;
+$container-width-desktop: 970px;
+$container-width-desktop-large: 1170px;
+$container-max-width: $container-width-desktop-large;
+$header-height: 70px;
+$default-vertical-margin: 2em;
+
+////////////////////////
+// Breakpoint settings
+////////////////////////
+
+$mobile-landscape : 480px;
+$tablet           : 768px;
+$desktop          : 1024px;
+$desktop-large    : 1280px;

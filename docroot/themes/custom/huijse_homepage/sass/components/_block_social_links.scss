@@ -1,0 +1,45 @@
+#block-sociallinks {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    @include breakpoint($desktop) {
+      text-align: right;
+    }
+
+    li {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      border: 0;
+      height: 28px;
+      width: 28px;
+      overflow: hidden;
+
+      a {
+        display: inline-block;
+        text-decoration: none;
+        color: $white;
+        background-color: $color-passive;
+        font-size: 18px;
+        line-height: 28px;
+        width: 28px;
+
+        &:before {
+          width: 28px;
+          height: 28px;
+          line-height: 28px;
+          margin: 0;
+          padding: 1px 0 0;
+        }
+
+        &:hover {
+          background-color: $color-active;
+        }
+      }
+    }
+  }
+}

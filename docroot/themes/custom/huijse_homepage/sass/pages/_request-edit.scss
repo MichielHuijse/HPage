@@ -1,0 +1,21 @@
+//
+// Page: Request edit
+//
+
+.owner-edit-request-dialog {
+    @include default-container;
+    margin-top: 1.5em;
+}
+
+.owner-edit-request-dialog ol,
+.owner-edit-request-dialog ul {
+    padding-left: 0;
+}
+
+.owner-edit-request-dialog h1 {
+    margin-top: 0;
+}
+
+.owner-edit-request-dialog .button {
+    margin-left: 0;
+}

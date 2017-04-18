@@ -1,0 +1,22 @@
+////////////////////////
+// Base Partials
+//
+// These files will be shared across all of your output CSS files. Generally
+// included here are Sass plugins and imports for variables, functions, mixins,
+// and extendables.
+////////////////////////
+
+////////////////////////
+// 3rd party libraries
+////////////////////////
+@import '../../lib/breakpoint/stylesheets/_breakpoint.scss';
+@import '../../lib/susy/sass/_susy.scss';
+@import '../../lib/toolkit/stylesheets/_toolkit.scss';
+
+////////////////////////
+// Private Imports
+////////////////////////
+@import 'functions';
+@import 'responsive';
+@import 'colors';
+@import 'mixins';
